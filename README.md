@@ -73,9 +73,9 @@ In the root of your project directory, create a `docker-compose.yml` file to def
       networks:
         - public
         - private
-      environment:
+      environment:  # this variable that mentioned in the python app as"MONGO_URI"
         - MONGO_URI=mongodb://mongo:27017/database
-        # this variable that mentioned in the python app as"MONGO_URI"
+        
 
     mongo:
       image: mongo:latest
@@ -131,14 +131,14 @@ In the root of your project directory, create a `docker-compose.yml` file to def
 
 ### Step 5: Build and Run the Application
 
-1. **Build the Docker Images**:
+- **Build the Docker Images**:
    ```bash
-   docker-compose build
+   docker-compose up --build
    ```
 
-2. **Run the Docker Containers**:
+- **Run the Docker Containers**:
    ```bash
-   docker-compose up
+   docker compose-up
    ```
 
 ### Step 6: Access the Application
