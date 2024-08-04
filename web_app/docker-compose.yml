@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  flask-app:
+    build:
+      context: ./app  # Path to the directory containing Dockerfile
+    container_name: flask-app
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mongo
+    networks:
+      - public
+      - private
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/database
+
+  mongo:
+    image: mongo:latest
+    container_name: mongo
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - private
+
+volumes:
+  mongo-data:
+
+
+networks:
+  public:
+    driver: bridge
+  private:
+    driver: bridge
+    internal: yes
