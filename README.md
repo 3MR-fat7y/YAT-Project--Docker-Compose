@@ -138,8 +138,12 @@ In the root of your project directory, create a `docker-compose.yml` file to def
 
 - **Run the Docker Containers**:
    ```bash
-   docker compose-up
+   docker-compose up
    ```
+- **To stop the application**:
+   ```bash
+  docker-compose down
+  ```
 
 ### Step 6: Access the Application
 
